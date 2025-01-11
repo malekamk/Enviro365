@@ -37,5 +37,3 @@ To run the application locally or in a Docker container, follow the steps below.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/enviro365-waste-sorting.git
-cd enviro365-waste-sorting
