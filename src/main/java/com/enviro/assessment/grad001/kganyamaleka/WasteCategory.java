@@ -11,7 +11,7 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 public class WasteCategory {
 
-    @NotBlank(message = "name can not be null")
+    @NotBlank(message = "name can not be blank")
     private String name;
 
     private String description;
