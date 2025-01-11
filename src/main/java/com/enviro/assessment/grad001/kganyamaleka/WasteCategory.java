@@ -14,7 +14,6 @@ public class WasteCategory {
     @NotBlank(message = "name can not be null")
     private String name;
 
-    @NotBlank(message = "Description can not be null")
     private String description;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
