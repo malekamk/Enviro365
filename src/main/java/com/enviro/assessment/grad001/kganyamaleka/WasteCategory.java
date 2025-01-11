@@ -34,4 +34,6 @@ public class WasteCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public WasteCategory(long l, String plastic) {
+    }
 }
