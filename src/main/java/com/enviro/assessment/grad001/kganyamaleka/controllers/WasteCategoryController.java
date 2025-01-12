@@ -1,9 +1,11 @@
 package com.enviro.assessment.grad001.kganyamaleka.controllers;
 
+import com.enviro.assessment.grad001.kganyamaleka.DTO.WasteCategoryDTO;
 import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
 import com.enviro.assessment.grad001.kganyamaleka.services.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +27,7 @@ public class WasteCategoryController {
      * @return a list of all waste categories.
      */
     @GetMapping
-    public List<WasteCategory> getCategories(){
+    public List<WasteCategoryDTO> getCategories(){
         return services.getAllCategories();
     }
 
@@ -34,20 +36,30 @@ public class WasteCategoryController {
      * @param id the ID of the waste category to be deleted.
      * @return a ResponseEntity with no content (HTTP 204) indicating successful deletion.
      */
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCategory(@PathVariable Long id){
-        services.deleteCategoryByID(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
+        WasteCategoryDTO category = services.getById(id);
+        if (category != null) {
+            services.deleteCategoryByID(id);
+            return ResponseEntity.noContent().build();  // Successfully deleted
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();  // Resource not found
+        }
     }
+
 
     /**
      * Adds a new waste category.
      * @param category the waste category to be added.
      * @return a ResponseEntity containing the saved waste category.
      */
+
     @PostMapping
-    public ResponseEntity<WasteCategory> saveCategory(@Valid @RequestBody WasteCategory category){
-        return ResponseEntity.ok(services.addCategory(category));
+    public ResponseEntity<WasteCategoryDTO> saveCategory(@Valid @RequestBody WasteCategory category) {
+        WasteCategoryDTO savedCategoryDTO = services.addCategory(category);  // Get the DTO from the service
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedCategoryDTO);  // Return DTO with 201 status
     }
+
 
 }

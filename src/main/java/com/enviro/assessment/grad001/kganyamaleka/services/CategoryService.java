@@ -1,5 +1,6 @@
 package com.enviro.assessment.grad001.kganyamaleka.services;
 
+import com.enviro.assessment.grad001.kganyamaleka.DTO.WasteCategoryDTO;
 import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
 import com.enviro.assessment.grad001.kganyamaleka.repository.WasteCategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Service class for managing waste categories.
@@ -22,8 +24,10 @@ public class CategoryService {
      * Retrieves all waste categories.
      * @return a list of all waste categories.
      */
-    public List<WasteCategory> getAllCategories(){
-        return repository.findAll();
+    public List<WasteCategoryDTO> getAllCategories() {
+        return repository.findAll().stream()
+                .map(WasteCategoryDTO::new)  // Convert WasteCategory to WasteCategoryDTO
+                .collect(Collectors.toList());
     }
 
     /**
@@ -31,17 +35,25 @@ public class CategoryService {
      * @param id the ID of the waste category.
      * @return an Optional containing the waste category, or empty if not found.
      */
-    public Optional<WasteCategory> getById(Long id){
-        return repository.findById(id);
+    public WasteCategoryDTO getById(Long id) {
+        WasteCategory category = repository.findById(id)
+                .orElse(null);  // Return null if not found
+        if (category != null) {
+            return new WasteCategoryDTO(category);  // Return DTO if found
+        } else {
+            return null;  // Return null if not found
+        }
     }
+
 
     /**
      * Adds a new waste category.
      * @param category the waste category to be added.
      * @return the saved waste category.
      */
-    public WasteCategory addCategory(WasteCategory category){
-        return repository.save(category);
+    public WasteCategoryDTO addCategory(WasteCategory category) {
+        WasteCategory savedCategory = repository.save(category);
+        return new WasteCategoryDTO(savedCategory);  // Return DTO instead of entity
     }
 
     /**

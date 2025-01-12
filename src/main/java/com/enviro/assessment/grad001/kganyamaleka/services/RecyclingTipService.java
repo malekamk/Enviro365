@@ -34,11 +34,7 @@ public class RecyclingTipService {
         return wasteTipRepository.save(tip);
     }
 
-    /**
-     * Deletes a recycling tip by its ID.
-     * @param id the ID of the recycling tip to be deleted.
-     */
-    public void updateRecyclingTip(Long id){
-        wasteTipRepository.deleteById(id);
+    public List<RecyclingTip> getTipByCategoryId(Long id){
+        return wasteTipRepository.getByCategoryId(id);
     }
 }

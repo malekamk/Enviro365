@@ -29,6 +29,11 @@ public class RecyclingTipController {
         return recyclingTipService.getAllWasteTips();
     }
 
+    @GetMapping("category/{id}")
+    public List<RecyclingTip> getByCategoryId(@PathVariable Long id){
+        return recyclingTipService.getTipByCategoryId(id);
+    }
+
     /**
      * Adds a new recycling tip.
      * @param addedTip the recycling tip to be added.
