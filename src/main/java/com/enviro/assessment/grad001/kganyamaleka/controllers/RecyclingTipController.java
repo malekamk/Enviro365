@@ -1,9 +1,11 @@
 package com.enviro.assessment.grad001.kganyamaleka.controllers;
 
+import com.enviro.assessment.grad001.kganyamaleka.DTO.RecyclingTipDTO;
 import com.enviro.assessment.grad001.kganyamaleka.services.RecyclingTipService;
 import com.enviro.assessment.grad001.kganyamaleka.entities.RecyclingTip;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,12 +27,12 @@ public class RecyclingTipController {
      * @return a list of all recycling tips.
      */
     @GetMapping
-    public List<RecyclingTip> getAllTips(){
-        return recyclingTipService.getAllWasteTips();
+    public List<RecyclingTipDTO> getAllTips(){
+        return recyclingTipService.getAllTips();
     }
 
     @GetMapping("category/{id}")
-    public List<RecyclingTip> getByCategoryId(@PathVariable Long id){
+    public List<RecyclingTipDTO> getByCategoryId(@PathVariable Long id){
         return recyclingTipService.getTipByCategoryId(id);
     }
 
@@ -40,7 +42,8 @@ public class RecyclingTipController {
      * @return a ResponseEntity containing the saved recycling tip.
      */
     @PostMapping
-    public ResponseEntity<RecyclingTip>  addTip(@Valid @RequestBody RecyclingTip addedTip){
-        return ResponseEntity.ok(recyclingTipService.addRecyclingTip(addedTip));
+    public ResponseEntity<RecyclingTipDTO>  addTip(@Valid @RequestBody RecyclingTip addedTip){
+        RecyclingTipDTO recyclingTipDTO = recyclingTipService.addTip(addedTip);
+        return ResponseEntity.status(HttpStatus.CREATED).body(recyclingTipDTO);
     }
 }

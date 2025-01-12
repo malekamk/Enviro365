@@ -20,10 +20,6 @@ public class WasteCategory {
     @Column(nullable = false, updatable = false)
     private LocalDateTime created;
 
-    @UpdateTimestamp
-    @Column(nullable = false)
-    private LocalDateTime updated;
-
 
     @NotBlank(message = "name can not be blank")
     private String name;

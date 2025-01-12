@@ -1,11 +1,16 @@
 package com.enviro.assessment.grad001.kganyamaleka.services;
 
+import com.enviro.assessment.grad001.kganyamaleka.DTO.RecyclingTipDTO;
+import com.enviro.assessment.grad001.kganyamaleka.DTO.WasteCategoryDTO;
+import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
 import com.enviro.assessment.grad001.kganyamaleka.repository.WasteTipRepository;
 import com.enviro.assessment.grad001.kganyamaleka.entities.RecyclingTip;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Service class for managing recycling tips.
@@ -15,14 +20,16 @@ import java.util.List;
 public class RecyclingTipService {
 
     @Autowired
-    private WasteTipRepository wasteTipRepository;
+    private WasteTipRepository repository;
 
     /**
      * Retrieves a list of all recycling tips.
      * @return a list of all recycling tips.
      */
-    public List<RecyclingTip> getAllWasteTips() {
-        return wasteTipRepository.findAll();
+    public List<RecyclingTipDTO> getAllTips() {
+        return repository.findAll().stream()
+                .map(RecyclingTipDTO::new)  // Convert WasteCategory to WasteCategoryDTO
+                .collect(Collectors.toList());
     }
 
     /**
@@ -30,11 +37,22 @@ public class RecyclingTipService {
      * @param tip the recycling tip to be added.
      * @return the saved recycling tip.
      */
-    public RecyclingTip addRecyclingTip(RecyclingTip tip) {
-        return wasteTipRepository.save(tip);
+    @Transactional
+    public RecyclingTipDTO addTip(RecyclingTip tip) {
+        RecyclingTip savedTip = repository.save(tip);
+        return new RecyclingTipDTO(savedTip);  // Return DTO instead of entity
     }
 
-    public List<RecyclingTip> getTipByCategoryId(Long id){
-        return wasteTipRepository.getByCategoryId(id);
+    /**
+     * Retrieves recycling tips based on the category ID.
+     * @param id the ID of the category.
+     * @return a list of recycling tips for the given category.
+     */
+    public List<RecyclingTipDTO> getTipByCategoryId(Long id) {
+        List<RecyclingTip> tips = repository.findByCategoryId(id);
+        return tips.stream()
+                .map(RecyclingTipDTO::new)  // Convert RecyclingTip to RecyclingTipDTO
+                .collect(Collectors.toList());
     }
+
 }

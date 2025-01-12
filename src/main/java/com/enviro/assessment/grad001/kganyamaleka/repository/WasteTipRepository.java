@@ -16,7 +16,7 @@ public interface WasteTipRepository extends JpaRepository<RecyclingTip, Long> {
      * @param categoryID the ID of the category.
      * @return a list of recycling tips for the specified category.
      */
-    List<RecyclingTip> getByCategoryId(Long categoryID);
+    List<RecyclingTip> findByCategoryId(Long categoryID);
 
 }
 
