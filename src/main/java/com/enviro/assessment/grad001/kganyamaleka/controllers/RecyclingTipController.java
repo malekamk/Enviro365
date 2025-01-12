@@ -1,5 +1,7 @@
-package com.enviro.assessment.grad001.kganyamaleka;
+package com.enviro.assessment.grad001.kganyamaleka.controllers;
 
+import com.enviro.assessment.grad001.kganyamaleka.services.RecyclingTipService;
+import com.enviro.assessment.grad001.kganyamaleka.entities.RecyclingTip;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

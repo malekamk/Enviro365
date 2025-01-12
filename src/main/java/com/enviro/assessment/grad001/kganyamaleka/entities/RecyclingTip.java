@@ -1,7 +1,6 @@
-package com.enviro.assessment.grad001.kganyamaleka;
+package com.enviro.assessment.grad001.kganyamaleka.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 /**

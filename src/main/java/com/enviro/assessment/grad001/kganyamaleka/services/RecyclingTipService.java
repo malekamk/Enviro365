@@ -1,5 +1,7 @@
-package com.enviro.assessment.grad001.kganyamaleka;
+package com.enviro.assessment.grad001.kganyamaleka.services;
 
+import com.enviro.assessment.grad001.kganyamaleka.repository.WasteTipRepository;
+import com.enviro.assessment.grad001.kganyamaleka.entities.RecyclingTip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
