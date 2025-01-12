@@ -29,9 +29,10 @@ public class RecyclingTip {
     @Setter
     @Getter
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id", nullable = true)
     @JsonBackReference
     private WasteCategory category;
+
 
 
 }
