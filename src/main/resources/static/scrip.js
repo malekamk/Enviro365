@@ -110,12 +110,12 @@ function renderTips(tips, containerId) {
     return;
   }
 
-  tips.forEach((tip) => {
+  tips.forEach((recyclingTip) => {
     const tipItem = document.createElement("div");
     tipItem.className = "item";
     tipItem.innerHTML = `
-      <strong>Tip:</strong> ${tip.recyclingTip}<br>
-      <strong>Category ID:</strong> ${recyclingTip.category.id || "Unknown"}
+      <strong>Tip:</strong> ${recyclingTip.recyclingTip}<br>
+      <strong>Category ID:</strong> ${recyclingTip.category || "Unknown"}
     `;
     container.appendChild(tipItem);
   });
