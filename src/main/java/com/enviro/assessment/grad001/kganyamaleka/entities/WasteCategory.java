@@ -14,7 +14,6 @@ import java.util.List;
 public class WasteCategory {
 
     @CreationTimestamp
-    @Column(nullable = false, updatable = false)
     private LocalDateTime created;
 
 

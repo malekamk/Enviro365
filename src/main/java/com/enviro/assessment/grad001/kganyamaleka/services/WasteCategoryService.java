@@ -5,7 +5,6 @@ import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
 import com.enviro.assessment.grad001.kganyamaleka.exceptions.ResourceNotFoundException;
 import com.enviro.assessment.grad001.kganyamaleka.repository.WasteCategoryRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +15,15 @@ import java.util.stream.Collectors;
  * Provides business logic for interacting with the waste category repository.
  */
 @Service
+@Transactional
 public class WasteCategoryService {
 
-    @Autowired
-    private WasteCategoryRepository repository;
+    private final WasteCategoryRepository repository;
+
+    // Constructor injection for better testability
+    public WasteCategoryService(WasteCategoryRepository repository) {
+        this.repository = repository;
+    }
 
     /**
      * Retrieves all waste categories.
@@ -48,7 +52,6 @@ public class WasteCategoryService {
      * @param category the waste category to be added.
      * @return the saved WasteCategoryDTO.
      */
-    @Transactional
     public WasteCategoryDTO addCategory(WasteCategory category) {
         WasteCategory savedCategory = repository.save(category);
         return new WasteCategoryDTO(savedCategory);  // Return DTO instead of entity
@@ -67,7 +70,6 @@ public class WasteCategoryService {
      * @param id the ID of the waste category to be deleted.
      * @throws ResourceNotFoundException if the category is not found.
      */
-    @Transactional
     public void deleteCategoryByID(Long id) {
         if (!repository.existsById(id)) {
             throw new ResourceNotFoundException("Cannot delete. Waste category with ID " + id + " not found.");

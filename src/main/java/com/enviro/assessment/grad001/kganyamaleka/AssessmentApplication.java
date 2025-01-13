@@ -1,4 +1,4 @@
-package com.enviro.assessment.grad001.kganyamaleka.runApplication;
+package com.enviro.assessment.grad001.kganyamaleka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
