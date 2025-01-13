@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Unit tests for the WasteCategoryController class.
  * Verifies the behavior of the controller endpoints for managing waste categories.
  */
-class WasteCategoryControllerTest {
+class WasteCategoryControllerTests {
 
     private MockMvc mockMvc;
 
@@ -114,4 +114,15 @@ class WasteCategoryControllerTest {
         verify(categoryService, times(1)).getById(categoryId);
         verify(categoryService, times(1)).deleteCategoryByID(categoryId);
     }
+    @Test
+    void testSaveCategoryInvalidInput() throws Exception {
+        // Missing required fields (e.g., "name")
+        String invalidPayload = "{\"description\": \"Missing name field\"}";
+
+        mockMvc.perform(post("/api/waste/categories")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(invalidPayload))
+                .andExpect(status().isBadRequest()); // Expect 400 Bad Request
+    }
+
 }
