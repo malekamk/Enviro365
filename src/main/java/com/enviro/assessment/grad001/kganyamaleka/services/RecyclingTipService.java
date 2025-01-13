@@ -1,8 +1,6 @@
 package com.enviro.assessment.grad001.kganyamaleka.services;
 
 import com.enviro.assessment.grad001.kganyamaleka.DTO.RecyclingTipDTO;
-import com.enviro.assessment.grad001.kganyamaleka.DTO.WasteCategoryDTO;
-import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
 import com.enviro.assessment.grad001.kganyamaleka.repository.WasteTipRepository;
 import com.enviro.assessment.grad001.kganyamaleka.entities.RecyclingTip;
 import jakarta.transaction.Transactional;
@@ -37,6 +35,7 @@ public class RecyclingTipService {
      * @param tip the recycling tip to be added.
      * @return the saved recycling tip.
      */
+    @Transactional
     public RecyclingTipDTO addTip(RecyclingTip tip) {
         RecyclingTip savedTip = repository.save(tip);
         return new RecyclingTipDTO(savedTip);  // Return DTO instead of entity

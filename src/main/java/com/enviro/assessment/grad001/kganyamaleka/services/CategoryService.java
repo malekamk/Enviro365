@@ -3,11 +3,11 @@ package com.enviro.assessment.grad001.kganyamaleka.services;
 import com.enviro.assessment.grad001.kganyamaleka.DTO.WasteCategoryDTO;
 import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
 import com.enviro.assessment.grad001.kganyamaleka.repository.WasteCategoryRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -51,6 +51,7 @@ public class CategoryService {
      * @param category the waste category to be added.
      * @return the saved waste category.
      */
+    @Transactional
     public WasteCategoryDTO addCategory(WasteCategory category) {
         WasteCategory savedCategory = repository.save(category);
         return new WasteCategoryDTO(savedCategory);  // Return DTO instead of entity
@@ -68,6 +69,7 @@ public class CategoryService {
      * Deletes a waste category by its ID.
      * @param id the ID of the waste category to be deleted.
      */
+    @Transactional
     public void deleteCategoryByID(Long id){
         repository.deleteById(id);
     }
