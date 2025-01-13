@@ -24,7 +24,7 @@ public class WasteCategoryDTO {
             this.recyclingTips = (category != null && category.getRecyclingTips() != null) ?
                     category.getRecyclingTips()
                             .stream()
-                            .map(RecyclingTip::getTip)
+                            .map(RecyclingTip::getRecyclingTip)
                             .collect(Collectors.toList()) : new ArrayList<>();
         }
 

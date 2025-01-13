@@ -3,6 +3,7 @@ package com.enviro.assessment.grad001.kganyamaleka.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
@@ -18,8 +19,10 @@ public class WasteCategory {
 
 
     @NotBlank(message = "name can not be blank")
+    @Size(max = 50, message = "Name must not exceed 50 characters")
     private String name;
 
+    @Size(max = 100, message = "Description must not exceed 100 characters")
     private String description;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)

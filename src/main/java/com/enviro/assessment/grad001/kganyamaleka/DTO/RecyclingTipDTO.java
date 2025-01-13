@@ -10,7 +10,7 @@ public class RecyclingTipDTO {
     private String recyclingTip;
 
     public RecyclingTipDTO(RecyclingTip recyclingTip) {
-        this.recyclingTip = recyclingTip.getTip();
+        this.recyclingTip = recyclingTip.getRecyclingTip();
 
     }
 }
