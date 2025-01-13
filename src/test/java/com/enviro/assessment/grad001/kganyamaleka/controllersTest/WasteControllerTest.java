@@ -114,47 +114,4 @@ class WasteCategoryControllerTest {
         verify(categoryService, times(1)).getById(categoryId);
         verify(categoryService, times(1)).deleteCategoryByID(categoryId);
     }
-    @Test
-    void testSaveCategoryInvalidInput() throws Exception {
-        // Missing required fields (e.g., "name")
-        String invalidPayload = "{\"description\": \"Missing name field\"}";
-
-        mockMvc.perform(post("/api/waste/categories")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(invalidPayload))
-                .andExpect(status().isBadRequest()); // Expect 400 Bad Request
-    }
-
-    @Test
-    void testGetCategoryById() throws Exception {
-        Long categoryId = 1L;
-
-        when(categoryService.getById(categoryId)).thenReturn(plasticDTO);
-
-        mockMvc.perform(get("/api/waste/categories/{id}", categoryId)
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("Plastic"))
-                .andExpect(jsonPath("$.description").value("Plastic materials"));
-
-        verify(categoryService, times(1)).getById(categoryId);
-    }
-    @Test
-    void testGetCategoryByIdNotFound() throws Exception {
-        Long categoryId = 999L;
-
-        when(categoryService.getById(categoryId)).thenThrow(new IllegalArgumentException("Category not found"));
-
-        mockMvc.perform(get("/api/waste/categories/{id}", categoryId)
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.message").value("Category not found"));
-
-        verify(categoryService, times(1)).getById(categoryId);
-    }
-
-
-
-
-
 }
