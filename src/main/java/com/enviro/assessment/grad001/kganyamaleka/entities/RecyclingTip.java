@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+
 /**
  * Represents a recycling tip that provides guidance for proper waste disposal and recycling.
  * Each tip is associated with a specific waste category.
@@ -29,10 +30,8 @@ public class RecyclingTip {
     @Setter
     @Getter
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = true)
+    @JoinColumn(name = "category_id", nullable = false)
     @JsonBackReference
     private WasteCategory category;
-
-
 
 }

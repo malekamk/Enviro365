@@ -28,15 +28,6 @@ public class WasteCategoryDTO {
                             .collect(Collectors.toList()) : new ArrayList<>();
         }
 
-        @Override
-        public String toString() {
-            return "WasteCategoryDTO{" +
-                    "name='" + name + '\'' +
-                    ", description='" + description + '\'' +
-                    ", creationTime='" + creationTime + '\'' +
-                    ", recyclingTips=" + recyclingTips +
-                    '}';
-        }
     }
 
 
