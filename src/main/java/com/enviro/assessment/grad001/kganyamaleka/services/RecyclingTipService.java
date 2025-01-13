@@ -1,7 +1,7 @@
 package com.enviro.assessment.grad001.kganyamaleka.services;
 
 import com.enviro.assessment.grad001.kganyamaleka.DTO.RecyclingTipDTO;
-import com.enviro.assessment.grad001.kganyamaleka.repository.WasteTipRepository;
+import com.enviro.assessment.grad001.kganyamaleka.repository.RecyclingTipRepository;
 import com.enviro.assessment.grad001.kganyamaleka.entities.RecyclingTip;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class RecyclingTipService {
 
     @Autowired
-    private WasteTipRepository repository;
+    private RecyclingTipRepository repository;
 
     /**
      * Retrieves a list of all recycling tips.

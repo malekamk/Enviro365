@@ -2,7 +2,7 @@ package com.enviro.assessment.grad001.kganyamaleka.controllers;
 
 import com.enviro.assessment.grad001.kganyamaleka.DTO.WasteCategoryDTO;
 import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
-import com.enviro.assessment.grad001.kganyamaleka.services.CategoryService;
+import com.enviro.assessment.grad001.kganyamaleka.services.WasteCategoryService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ import java.util.List;
 public class WasteCategoryController {
 
     @Autowired
-    private CategoryService services;
+    private WasteCategoryService services;
 
     /**
      * Retrieves a list of all waste categories.

@@ -3,7 +3,7 @@ package com.enviro.assessment.grad001.kganyamaleka.controllersTest;
 import com.enviro.assessment.grad001.kganyamaleka.DTO.WasteCategoryDTO;
 import com.enviro.assessment.grad001.kganyamaleka.controllers.WasteCategoryController;
 import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
-import com.enviro.assessment.grad001.kganyamaleka.services.CategoryService;
+import com.enviro.assessment.grad001.kganyamaleka.services.WasteCategoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -29,7 +29,7 @@ class WasteCategoryControllerTest {
     private MockMvc mockMvc;
 
     @Mock
-    private CategoryService categoryService;
+    private WasteCategoryService categoryService;
 
     @InjectMocks
     private WasteCategoryController wasteCategoryController;

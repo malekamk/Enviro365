@@ -2,7 +2,7 @@ package com.enviro.assessment.grad001.kganyamaleka.services;
 
 import com.enviro.assessment.grad001.kganyamaleka.DTO.WasteCategoryDTO;
 import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
-import com.enviro.assessment.grad001.kganyamaleka.repository.WasteCategoryRepo;
+import com.enviro.assessment.grad001.kganyamaleka.repository.WasteCategoryRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
  * Provides business logic for interacting with the waste category repository.
  */
 @Service
-public class CategoryService {
+public class WasteCategoryService {
 
     @Autowired
-    private WasteCategoryRepo repository;
+    private WasteCategoryRepository repository;
 
     /**
      * Retrieves all waste categories.

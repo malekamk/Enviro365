@@ -9,7 +9,7 @@ import java.util.List;
  * Repository interface for managing RecyclingTip entities.
  * Provides methods for performing CRUD operations on RecyclingTip objects.
  */
-public interface WasteTipRepository extends JpaRepository<RecyclingTip, Long> {
+public interface RecyclingTipRepository extends JpaRepository<RecyclingTip, Long> {
     // JpaRepository already provides methods like save(), findById(), findAll(), deleteById() for CRUD operations.
     /**
      * Finds recycling tips by the category ID.
