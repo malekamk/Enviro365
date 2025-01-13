@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 @Data
 public class WasteCategoryDTO {
         private String name;
+        private Long id;
         private String description;
         private LocalDateTime creationTime;
         private List<String> recyclingTips;
@@ -19,6 +20,7 @@ public class WasteCategoryDTO {
         // Constructor to map from entity
         public WasteCategoryDTO(WasteCategory category) {
             this.name = category.getName();
+            this.id = category.getId();
             this.creationTime = category.getCreated();
             this.description = category != null ? category.getDescription() : null;
             this.recyclingTips = (category != null && category.getRecyclingTips() != null) ?
