@@ -2,7 +2,6 @@ package com.enviro.assessment.grad001.kganyamaleka.services;
 
 import com.enviro.assessment.grad001.kganyamaleka.DTO.WasteCategoryDTO;
 import com.enviro.assessment.grad001.kganyamaleka.entities.WasteCategory;
-import com.enviro.assessment.grad001.kganyamaleka.exceptions.ResourceNotFoundException;
 import com.enviro.assessment.grad001.kganyamaleka.repository.WasteCategoryRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,19 +33,23 @@ public class WasteCategoryService {
     /**
      * Retrieves a waste category by its ID.
      * @param id the ID of the waste category.
-     * @return the WasteCategoryDTO.
-     * @throws ResourceNotFoundException if the category is not found.
+     * @return an Optional containing the waste category, or empty if not found.
      */
     public WasteCategoryDTO getById(Long id) {
         WasteCategory category = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Waste category with ID " + id + " not found."));
-        return new WasteCategoryDTO(category);  // Return DTO
+                .orElse(null);  // Return null if not found
+        if (category != null) {
+            return new WasteCategoryDTO(category);  // Return DTO if found
+        } else {
+            return null;  // Return null if not found
+        }
     }
+
 
     /**
      * Adds a new waste category.
      * @param category the waste category to be added.
-     * @return the saved WasteCategoryDTO.
+     * @return the saved waste category.
      */
     @Transactional
     public WasteCategoryDTO addCategory(WasteCategory category) {
@@ -58,20 +61,16 @@ public class WasteCategoryService {
      * Retrieves the total number of waste categories.
      * @return the count of all waste categories.
      */
-    public Long numberOfCategories() {
+    public Long numberOfCategories(){
         return repository.count();
     }
 
     /**
      * Deletes a waste category by its ID.
      * @param id the ID of the waste category to be deleted.
-     * @throws ResourceNotFoundException if the category is not found.
      */
     @Transactional
-    public void deleteCategoryByID(Long id) {
-        if (!repository.existsById(id)) {
-            throw new ResourceNotFoundException("Cannot delete. Waste category with ID " + id + " not found.");
-        }
+    public void deleteCategoryByID(Long id){
         repository.deleteById(id);
     }
 }
