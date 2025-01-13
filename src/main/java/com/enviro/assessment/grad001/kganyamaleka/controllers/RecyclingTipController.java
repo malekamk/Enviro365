@@ -3,6 +3,9 @@ package com.enviro.assessment.grad001.kganyamaleka.controllers;
 import com.enviro.assessment.grad001.kganyamaleka.DTO.RecyclingTipDTO;
 import com.enviro.assessment.grad001.kganyamaleka.services.RecyclingTipService;
 import com.enviro.assessment.grad001.kganyamaleka.entities.RecyclingTip;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +29,12 @@ public class RecyclingTipController {
      * Retrieves a list of all recycling tips.
      * @return a list of all recycling tips.
      */
+
+    @Operation(summary = "Get all recycling tips", description = "Retrieve a list of all recycling tips available in the database.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved the list of tips"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
     @GetMapping
     public List<RecyclingTipDTO> getAllTips(){
         return recyclingTipService.getAllTips();

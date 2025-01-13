@@ -26,7 +26,7 @@ public class RecyclingTipService {
      */
     public List<RecyclingTipDTO> getAllTips() {
         return repository.findAll().stream()
-                .map(RecyclingTipDTO::new)  // Convert WasteCategory to WasteCategoryDTO
+                .map(RecyclingTipDTO::new)  // Convert RecyclingTip to RecyclingTipDTO
                 .collect(Collectors.toList());
     }
 
