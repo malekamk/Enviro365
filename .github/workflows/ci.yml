@@ -18,12 +18,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Set up Java
+      # Set up Java 21 (using Temurin from Adoptium)
       - name: Set up JDK 21
         uses: actions/setup-java@v2
         with:
           java-version: '21'
-          distribution: 'adoptopenjdk'
+          distribution: 'temurin'
 
       # Build the project using Maven (adjust if using Gradle or another tool)
       - name: Build with Maven
