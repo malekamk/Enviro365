@@ -29,6 +29,8 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
+      - name: Verify Jar File
+        run: ls -l target
       # Run tests
       - name: Run tests
         run: mvn test
