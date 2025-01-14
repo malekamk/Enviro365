@@ -223,6 +223,39 @@ async function updateCategoryDescription() {
         alert(error.message);
     }
 }
+// Update category description
+async function updateCategoryDescription() {
+    const categoryId = document.getElementById('categoryIdDesc').value;
+    const description = document.getElementById('descriptionName').value;
+
+    if (!categoryId || !description) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    const updatedData = {
+        description: description
+    };
+
+    try {
+        const response = await fetch(`${apiBaseUrl}/waste/categories/${categoryId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updatedData),
+        });
+
+        if (response.ok) {
+            alert("Description updated successfully!");
+            fetchCategories(); // Refresh categories to reflect the updated description
+        } else if (response.status === 404) {
+            alert("Category not found. Please check the Category ID.");
+        } else {
+            throw new Error(`Error updating description: ${response.statusText}`);
+        }
+    } catch (error) {
+        alert(error.message);
+    }
+}
 
 
 
