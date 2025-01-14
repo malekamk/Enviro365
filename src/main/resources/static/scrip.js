@@ -148,6 +148,7 @@ async function addTip() {
     if (response.status === 201) {
       alert("Recycling tip added successfully!");
       fetchCategories(); // Refresh categories to include the new tip
+      fetchAllTips();
     } else {
       throw new Error(`Error adding tip: ${response.statusText}`);
     }
@@ -174,13 +175,13 @@ function renderCategories(categories) {
     categoryItem.innerHTML = `
       <strong>Category ID:</strong> ${category.id}<br>
       <strong>Category Name:</strong> ${category.name}<br>
-      <strong>Description:</strong> ${category.description || "No description available"}<br>
+      <strong>Description:</strong> ${category.description || "Not available"}<br>
       <strong>Creation Time:</strong> ${new Date(category.creationTime).toLocaleString()}<br>
       <strong>Recycling Tips:</strong>
       <ul>
         ${category.recyclingTips.length > 0
           ? category.recyclingTips.map(tip => `<li>${tip}</li>`).join("")
-          : "<li>No tips available</li>"
+          : "<li>Not available</li>"
         }
       </ul>
       <button class="delete-button" onclick="deleteCategory(${category.id})">Delete</button>

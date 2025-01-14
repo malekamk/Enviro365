@@ -8,9 +8,11 @@ import lombok.Data;
 public class RecyclingTipDTO {
 
     private String recyclingTip;
+    private String category;
 
     public RecyclingTipDTO(RecyclingTip recyclingTip) {
         this.recyclingTip = recyclingTip.getRecyclingTip();
+        this.category = recyclingTip.getCategory().getName();
 
     }
 }
