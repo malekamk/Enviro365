@@ -1,0 +1,14 @@
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/AssessmentApplication.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/CorsConfig.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/DTO/RecyclingTipDTO.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/DTO/WasteCategoryDTO.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/controllers/RecyclingTipController.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/controllers/WasteCategoryController.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/entities/RecyclingTip.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/entities/WasteCategory.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/exceptions/GlobalExceptionHandler.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/exceptions/ResourceNotFoundException.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/repository/RecyclingTipRepository.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/repository/WasteCategoryRepository.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/services/RecyclingTipService.java
+/home/lelapa/Assessments/assessment/src/main/java/com/enviro/assessment/grad001/kganyamaleka/services/WasteCategoryService.java
