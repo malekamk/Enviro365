@@ -48,6 +48,17 @@ public class WasteCategoryController {
         }
     }
 
+    /**
+     * Endpoint to update a waste category.
+     *
+     * @param id       the ID of the waste category to update.
+     * @param category the updated waste category data.
+     * @return the updated WasteCategoryDTO.
+     */
+    @PutMapping("/{id}")
+    public WasteCategoryDTO updateCategory(@PathVariable Long id, @RequestBody WasteCategory category) {
+        return services.updateCategory(id, category);
+    }
 
     /**
      * Adds a new waste category.

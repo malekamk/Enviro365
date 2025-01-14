@@ -48,6 +48,31 @@ public class WasteCategoryService {
     }
 
     /**
+     * Updates a waste category with new values.
+     *
+     * @param id       the ID of the waste category to update.
+     * @param category the WasteCategory object containing updated fields.
+     * @return the updated WasteCategoryDTO.
+     * @throws ResourceNotFoundException if the category is not found.
+     */
+    public WasteCategoryDTO updateCategory(Long id, WasteCategory category) {
+        WasteCategory existingCategory = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Waste category with ID " + id + " not found."));
+
+        if (category.getName() != null) {
+            existingCategory.setName(category.getName());
+        }
+        existingCategory.setDescription(category.getDescription());
+
+        // Update other fields if necessary
+
+        WasteCategory updatedCategory = repository.save(existingCategory);
+        return new WasteCategoryDTO(updatedCategory);
+    }
+
+
+
+    /**
      * Adds a new waste category.
      * @param category the waste category to be added.
      * @return the saved WasteCategoryDTO.

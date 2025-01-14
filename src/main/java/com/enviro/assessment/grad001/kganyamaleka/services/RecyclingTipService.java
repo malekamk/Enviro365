@@ -29,7 +29,6 @@ public class RecyclingTipService {
 
     /**
      * Retrieves a list of all recycling tips.
-     *
      * @return a list of RecyclingTipDTO objects representing all recycling tips in the database.
      */
     public List<RecyclingTipDTO> getAllTips() {
@@ -40,7 +39,6 @@ public class RecyclingTipService {
 
     /**
      * Adds a new recycling tip to the database.
-     *
      * @param tip the RecyclingTip entity to be saved.
      * @return a RecyclingTipDTO representing the saved recycling tip.
      */
@@ -50,9 +48,9 @@ public class RecyclingTipService {
         return new RecyclingTipDTO(savedTip);  // Convert the saved entity to DTO
     }
 
+
     /**
      * Retrieves recycling tips based on a specific waste category ID.
-     *
      * @param id the ID of the waste category.
      * @return a list of RecyclingTipDTO objects associated with the given category ID.
      */
