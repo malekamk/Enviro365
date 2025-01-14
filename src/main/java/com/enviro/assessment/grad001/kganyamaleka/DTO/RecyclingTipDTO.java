@@ -12,7 +12,8 @@ public class RecyclingTipDTO {
 
     public RecyclingTipDTO(RecyclingTip recyclingTip) {
         this.recyclingTip = recyclingTip.getRecyclingTip();
-        this.category = recyclingTip.getCategory().getName();
+        this.category = recyclingTip.getCategory()!= null? recyclingTip.getCategory().getName(): "";
+
 
     }
 }
