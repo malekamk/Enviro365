@@ -114,8 +114,8 @@ function renderTips(tips, containerId) {
     const tipItem = document.createElement("div");
     tipItem.className = "item";
     tipItem.innerHTML = `
-      <strong>Tip:</strong> ${recyclingTip.recyclingTip}<br>
-      <strong>Category ID:</strong> ${recyclingTip.category || "Unknown"}
+      <strong>Recycling Tip:</strong> ${recyclingTip.recyclingTip}<br>
+      <strong>Category:</strong> ${recyclingTip.category || "Unknown"}
     `;
     container.appendChild(tipItem);
   });
