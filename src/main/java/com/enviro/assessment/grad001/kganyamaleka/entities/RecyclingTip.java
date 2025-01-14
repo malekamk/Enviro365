@@ -22,8 +22,8 @@ public class RecyclingTip {
      * The content of the recycling tip.
      * Example: "Always rinse bottles before recycling."
      */
-    @NotBlank(message = "Recycling tip can not be blank")
-    @Size(max = 100, message = "Recycling  tip must not exceed 100 characters")
+    @NotBlank(message = "Recycling Tip can not be blank")
+    @Size(max = 100, message = "Recycling Tip must not exceed 100 characters")
     private String RecyclingTip;
     /**
      * The waste category to which this tip belongs.
