@@ -35,39 +35,11 @@ jobs:
       - name: Run tests
         run: mvn test
 
-  docker:
-    runs-on: ubuntu-latest
-    needs: build  # This job will only run after the build job completes successfully
 
-    steps:
-      # Checkout the repository code again
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Set up Docker (if not already available in the environment)
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      # Log in to Docker Hub (or another registry)
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      # Build the Docker image
-      - name: Build Docker image
-        run: |
-          docker build -t kganya/assessment:${{ github.sha }} .
-
-      # Push the Docker image to Docker Hub
-      - name: Push Docker image
-        run: |
-          docker push kganya/assessment:${{ github.sha }}
 
   deploy:
     runs-on: ubuntu-latest
-    needs: docker  # This job will only run after the Docker job completes successfully
+    needs: build  # This job will only run after the Docker job completes successfully
 
     steps:
       # Checkout the repository code again
