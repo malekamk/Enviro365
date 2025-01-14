@@ -19,7 +19,7 @@ public class WasteCategory {
 
 
     @NotBlank(message = "name can not be blank")
-    @Size(max = 50, message = "Name must not exceed 50 characters")
+    @Size(max = 60, message = "Name must not exceed 60 characters")
     private String name;
 
     @Size(max = 100, message = "Description must not exceed 100 characters")
