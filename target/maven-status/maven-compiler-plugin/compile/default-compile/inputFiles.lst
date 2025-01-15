@@ -1,12 +1,14 @@
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/AssessmentApplication.java
-/home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/CorsConfig.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/DTO/RecyclingTipDTO.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/DTO/WasteCategoryDTO.java
+/home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/config/CorsConfig.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/controllers/RecyclingTipController.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/controllers/WasteCategoryController.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/entities/RecyclingTip.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/entities/WasteCategory.java
+/home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/exceptions/DuplicateEntryException.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/exceptions/GlobalExceptionHandler.java
+/home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/exceptions/InvalidDataException.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/exceptions/ResourceNotFoundException.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/repository/RecyclingTipRepository.java
 /home/lelapa/Enviro365/src/main/java/com/enviro/assessment/grad001/kganyamaleka/repository/WasteCategoryRepository.java
