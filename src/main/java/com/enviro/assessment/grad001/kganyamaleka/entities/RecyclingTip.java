@@ -13,7 +13,7 @@ import lombok.Data;
  * Each tip is associated with a specific waste category.
  */
 @Entity
-@Data
+@Data // Lombok annotation to generate getters, setters, toString, equals, and hashCode
 public class RecyclingTip {
 
     @Id

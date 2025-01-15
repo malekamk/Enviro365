@@ -1,8 +1,9 @@
-package com.enviro.assessment.grad001.kganyamaleka.services;
+package com.enviro.assessment.grad001.kganyamaleka.servicesTest;
 
 import com.enviro.assessment.grad001.kganyamaleka.DTO.RecyclingTipDTO;
 import com.enviro.assessment.grad001.kganyamaleka.entities.RecyclingTip;
 import com.enviro.assessment.grad001.kganyamaleka.repository.RecyclingTipRepository;
+import com.enviro.assessment.grad001.kganyamaleka.services.RecyclingTipService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

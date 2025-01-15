@@ -28,7 +28,6 @@ public class RecyclingTipController {
 
     /**
      * Retrieves a list of all recycling tips.
-     *
      * @return ResponseEntity containing a list of all recycling tips.
      */
 

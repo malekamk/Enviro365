@@ -11,7 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data  // Lombok annotation to generate getters, setters, toString, equals, and hashCode
+
+// The @Data annotation from Lombok automatically generates boilerplate code such as
+// getters, setters, equals, hashCode, and toString methods for this class. This significantly
+// reduces development time and improves code readability by eliminating repetitive code.
+@Data
 public class WasteCategory {
 
     @CreationTimestamp
