@@ -61,4 +61,22 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-}
+
+        @ExceptionHandler(ResourceNotFoundException.class)
+        public ResponseEntity<Object> handleResourceNotFound(ResourceNotFoundException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Resource Not Found", "message", ex.getMessage()));
+        }
+
+        @ExceptionHandler(InvalidDataException.class)
+        public ResponseEntity<Object> handleInvalidData(InvalidDataException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "Invalid Data", "message", ex.getMessage()));
+        }
+
+        @ExceptionHandler(Exception.class)
+        public ResponseEntity<Object> handleGeneralException(Exception ex) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", "Internal Server Error", "message", "An unexpected error occurred."));
+        }
+    }
+
+
+
