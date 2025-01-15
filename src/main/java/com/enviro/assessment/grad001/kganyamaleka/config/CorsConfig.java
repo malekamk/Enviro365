@@ -1,4 +1,4 @@
-package com.enviro.assessment.grad001.kganyamaleka;
+package com.enviro.assessment.grad001.kganyamaleka.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
