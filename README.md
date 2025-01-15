@@ -51,7 +51,7 @@ Live endpoint:   [ **https://enviro365.onrender.com/api/waste/categories**](http
        }
 ## 2. Update Category Description/Dispose guideline
 
-[URL: **/api/waste/categories/{CategoryID}**]()   
+**/api/waste/categories/{CategoryID}**]
         
 - Method: PUT
 - Description: Update an existing dispose guideline.
@@ -74,16 +74,15 @@ Response:
 
 ## 3. Delete Category by id
 
-[   **URL: /api/waste/categories/{CategoryID}**
-]()   
+**URL: /api/waste/categories/{CategoryID}**
+
 - Method: Delete
 - Description: Deletes category by id and its referenced Recycling Tips if applicable
 - Response: No content
 
 ## 4. Add a New Waste Category
 
-[   **URL: /api/waste/categories**
-]()   
+**URL: /api/waste/categories**
 - Method: POST
 - Description: Adds a new waste category to the system.
 - Request Body:
@@ -124,8 +123,7 @@ Live endpoint:   [ **https://enviro365.onrender.com/api/waste/tips**](https://en
 
 ## 6. Add a New Recycling Tip
 
-[   **URL: /api/waste/tips**
-]()   
+**URL: /api/waste/tips**
 - Method: POST
 - Description: Adds a new recycling tip to a specific waste category.
 -  Request Body:
