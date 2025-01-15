@@ -1,4 +1,4 @@
-const apiBaseUrl = 'http://localhost:8080/api'; // API base URL
+const apiBaseUrl = 'https://enviro365.onrender.com/api'; // API base URL
 
 // Fetch all waste categories
 async function fetchCategories() {
