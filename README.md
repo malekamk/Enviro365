@@ -1,31 +1,34 @@
 # Enviro365 Waste Sorting Application
 
-## Live Website https://environment365.onrender.com
-## Overview
+## **Live Website**: [Enviro365](https://environment365.onrender.com)
 
-The **Enviro365 Waste Sorting Application** is an innovative solution aimed at promoting sustainable waste management practices, 
-The backend is supported by  persistent file based **H2 database** instead of an in-memory  for rapid development and testing, while **Docker** is used to containerize the application for ease of deployment.
+## Overview
+The **Enviro365 Waste Sorting Application** is a cutting-edge solution designed to promote sustainable waste management practices. The application provides users with intuitive tools for managing waste categories, understanding disposal guidelines, and accessing recycling tips. It is built with scalability and maintainability in mind, utilizing industry best practices in software development.
+
+The backend leverages a **persistent H2 database** for rapid development and testing, with **Docker** ensuring seamless containerization for deployment across environments. The application is deployed on **Render**, a cloud platform, and is fully integrated with a **GitHub CI/CD pipeline** to automate builds, testing, and deployments.
 
 ## Key Features
-
-- **Waste Category Management**: Manage waste categories such as "Plastic", "Metal", "Glass", etc.
-- **Disposal Guidelines**: Retrieve guidelines on how to dispose of different waste categories.
-- **Recycling Tips**: Provide tips on how to recycle materials properly.
-- **Input Validation**: Ensure that all incoming data meets the necessary requirements.
-- **Dockerized**: The application is containerized for easy deployment.
-- **In-Memory Database (H2)**: An H2 database is used for development, ensuring quick and simple setup.
+- **Waste Category Management**: Manage various waste categories, including "Plastic", "Metal", "Glass", and more.
+- **Disposal Guidelines**: Retrieve and display guidelines on how to properly dispose of each waste category.
+- **Recycling Tips**: Offer helpful tips for recycling materials efficiently.
+- **Input Validation**: Ensure that all incoming data meets the required standards for consistency and accuracy.
+- **Dockerized**: The application is fully containerized, ensuring a smooth deployment process and environment consistency.
+- **Persistent Database (H2)**: Uses a persistent H2 database, facilitating rapid development and quick testing cycles.
 
 ## Technologies Used
+- **Spring Boot**: A robust framework for building RESTful APIs, ensuring a solid foundation for scalable and efficient backend services.
+- **H2 Database**: A lightweight, persistent database solution for fast development and testing.
+- **Docker**: Containerization for consistent deployment across multiple environments, enhancing the application's portability and scalability.
+- **JUnit 5 & Mockito**: Industry-standard tools for unit and integration testing, ensuring high-quality, reliable code.
+- **Maven**: A build automation tool for dependency management and project builds.
+- **Postman**: Used for API testing, ensuring all endpoints are functioning as expected.
+- **Render**: Cloud platform for application deployment, providing a reliable environment for production and testing.
+- **UptimeRobot**: Monitors API health, ensuring the application is live and responsive 24/7.
+- **Java 21**: Leveraging modern features of Java for backend development with an emphasis on object-oriented programming (OOP).
 
-- **Spring Boot**: For creating RESTful APIs.
-- **H2 Database**: Persistent database for quick development and testing.
-- **Docker**: For containerizing the application and ensuring seamless deployment.
-- **JUnit 5** and **Mockito**: For unit and integration testing.
-- **Maven**: For managing project dependencies and builds.
-- **Postman**: For testing the APIs.
-- **Render**: For deploying application.
-- **UptimeRobot**: For API monitoring.
-- **Java 21 (Object Orientated Programming)**: For the backend development.
+## CI/CD Pipeline
+- **GitHub Actions**: Integrated CI/CD pipeline automating build, test, and deployment processes. This ensures that the application is always up to date with the latest changes, with no manual intervention required for deployment.
+
 
 ## API Endpoints
 ## 1. Get All Waste Categories
