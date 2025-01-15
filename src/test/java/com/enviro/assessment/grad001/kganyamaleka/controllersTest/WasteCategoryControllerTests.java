@@ -125,4 +125,27 @@ class WasteCategoryControllerTests {
                 .andExpect(status().isBadRequest()); // Expect 400 Bad Request
     }
 
+    /**
+     * Test for updating an existing waste category.
+     */
+    @Test
+    void testUpdateCategory() throws Exception {
+        Long categoryId = 1L;
+        WasteCategory updatedCategory = new WasteCategory();
+        updatedCategory.setName("Updated Plastic");
+        updatedCategory.setDescription("Updated description for plastic");
+
+        WasteCategoryDTO updatedCategoryDTO = new WasteCategoryDTO(updatedCategory);
+        when(categoryService.updateCategory(eq(categoryId), any(WasteCategory.class))).thenReturn(updatedCategoryDTO);
+
+        mockMvc.perform(put("/api/waste/categories/{id}", categoryId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"name\": \"Updated Plastic\", \"description\": \"Updated description for plastic\"}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("Updated Plastic"))
+                .andExpect(jsonPath("$.description").value("Updated description for plastic"));
+
+        verify(categoryService, times(1)).updateCategory(eq(categoryId), any(WasteCategory.class));
+    }
+
 }
