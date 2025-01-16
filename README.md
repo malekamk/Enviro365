@@ -21,6 +21,7 @@ The backend leverages a **persistent H2 database** for rapid development and tes
 - **Docker**: Containerization for consistent deployment across multiple environments, enhancing the application's portability and scalability.
 - **JUnit 5 & Mockito**: Industry-standard tools for unit and integration testing, ensuring high-quality, reliable code.
 - **Maven**: A build automation tool for dependency management and project builds.
+- **CodeScene** for continuous code quality analysis, ensuring maintainability and Code Health Metrics.
 - **Postman**: Used for API testing, ensuring all endpoints are functioning as expected.
 - **Render**: Cloud platform for application deployment, providing a reliable environment for production and testing.
 - **UptimeRobot**: Monitors API health, ensuring the application is live and responsive 24/7.

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.enviro.assessment.grad001.kganyamaleka.controllersTest.RecyclingTipControllerTests
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.692 s -- in com.enviro.assessment.grad001.kganyamaleka.controllersTest.RecyclingTipControllerTests
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.869 s -- in com.enviro.assessment.grad001.kganyamaleka.controllersTest.RecyclingTipControllerTests
