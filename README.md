@@ -34,7 +34,7 @@ The backend leverages a **persistent H2 database** for rapid development and tes
 ## API Endpoints
 ## 1. Get All Waste Categories
 
-Live endpoint:   [ **api/waste/categories**](https://environment365-qhpp.onrender.com/api/waste/categories)   
+Live endpoint:   [ **api/waste/categories**](https://enviro365.onrender.com/api/waste/categories)   
         
 - Method: GET
 - Description: Retrieves a list of all waste categories, including their details and associated recycling tips.
@@ -109,7 +109,7 @@ Response:
 
 ## 5. Get All Recycling Tips
 
-Live endpoint:   [ **api/waste/tips**](https://environment365-qhpp.onrender.com/api/waste/tips)   
+Live endpoint:   [ **api/waste/tips**](https://enviro365.onrender.com/api/waste/tips)   
    - Method: GET
    - Description: Retrieves a list of all recycling tips across categories.
    - Response:
