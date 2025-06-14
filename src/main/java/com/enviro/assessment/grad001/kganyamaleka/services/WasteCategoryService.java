@@ -7,8 +7,11 @@ import com.enviro.assessment.grad001.kganyamaleka.repository.WasteCategoryReposi
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.antlr.v4.runtime.tree.xpath.XPath.findAll;
 
 /**
  * Service class for managing waste categories.
@@ -30,9 +33,17 @@ public class WasteCategoryService {
      * @return a list of all waste categories.
      */
     public List<WasteCategoryDTO> getAllCategories() {
-        return repository.findAll().stream()
-                .map(WasteCategoryDTO::new)  // Convert WasteCategory to WasteCategoryDTO
-                .collect(Collectors.toList());
+//        return repository.findAll().stream()
+//                .map(WasteCategoryDTO::new)  // Convert WasteCategory to WasteCategoryDTO
+//                .collect(Collectors.toList());
+        List<WasteCategory> categories =  repository.findAll();
+
+        List<WasteCategoryDTO> wasteCategoryDTOS = new ArrayList<>();
+        for(WasteCategory category: categories){
+            wasteCategoryDTOS.add(new WasteCategoryDTO(category));
+
+        }
+        return wasteCategoryDTOS;
     }
 
     /**
@@ -41,7 +52,7 @@ public class WasteCategoryService {
      * @return the WasteCategoryDTO.
      * @throws ResourceNotFoundException if the category is not found.
      */
-    public WasteCategoryDTO getById(Long id) {
+    public WasteCategoryDTO getById(Long id) throws Exception {
         WasteCategory category = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Waste category with ID " + id + " not found."));
         return new WasteCategoryDTO(category);  // Return DTO
@@ -56,6 +67,9 @@ public class WasteCategoryService {
      * @throws ResourceNotFoundException if the category is not found.
      */
     public WasteCategoryDTO updateCategory(Long id, WasteCategory category) {
+
+        WasteCategory updatedCategory = null;
+        try{
         WasteCategory existingCategory = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Waste category with ID " + id + " not found."));
 
@@ -66,9 +80,13 @@ public class WasteCategoryService {
 
         // Update other fields if necessary
 
-        WasteCategory updatedCategory = repository.save(existingCategory);
+        updatedCategory = repository.save(existingCategory);}
+        catch (ResourceNotFoundException e){
+
+        }
         return new WasteCategoryDTO(updatedCategory);
     }
+
 
 
 
@@ -97,7 +115,11 @@ public class WasteCategoryService {
      */
     public void deleteCategoryByID(Long id) {
         if (!repository.existsById(id)) {
-            throw new ResourceNotFoundException("Cannot delete. Waste category with ID " + id + " not found.");
+            try {
+                throw new ResourceNotFoundException("Cannot delete. Waste category with ID " + id + " not found.");
+            } catch (ResourceNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         }
         repository.deleteById(id);
     }

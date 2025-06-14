@@ -70,12 +70,10 @@ public class WasteCategoryController {
      */
 
     @PutMapping("/{id}")
-    public ResponseEntity<WasteCategoryDTO> updateCategory( @PathVariable Long id, @RequestBody WasteCategory category) {
+    public ResponseEntity<WasteCategoryDTO> updateCategory( @PathVariable Long id, @RequestBody WasteCategory category) throws ResourceNotFoundException {
         try {
             WasteCategoryDTO updatedCategory = services.updateCategory(id, category);
             return ResponseEntity.ok(updatedCategory);
-        } catch (ResourceNotFoundException e) {
-            throw new ResourceNotFoundException("Category with ID " + id + " not found.");
         } catch (InvalidDataException e) {
             throw new InvalidDataException("Invalid data provided for category update.");
         } catch (Exception e) {
